@@ -1,0 +1,1253 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fayna_channel_bridge
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20260630\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-31 02:00+0000\n"
+"PO-Revision-Date: 2026-08-31 02:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "%s has been disconnected."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "<i class=\"fa fa-ban me-1\"/> Unavailable:"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "<i class=\"fa fa-check-square-o me-1\"/> User consent required"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "<i class=\"fa fa-exclamation-circle me-1\" title=\"Side effect\"/>"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "<i class=\"fa fa-exclamation-triangle me-1\" title=\"Cost warning\"/>"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "<i class=\"fa fa-lock me-1\" title=\"Blocked\"/>"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
+msgid ""
+"<span invisible=\"not is_connected\" class=\"badge text-bg-success\">Connected</span>\n"
+"                        <span invisible=\"is_connected\" class=\"badge text-bg-secondary\">Not connected</span>"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid "A bot with this token was not found. Check the key."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid "Access denied. Check the bot permissions at the provider."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_connect_wizard__token
+msgid "Access key"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_connect_wizard__token
+msgid "Access key to the channel. The format is suggested by the placeholder."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__active
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__active
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_search
+msgid "Active"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:res.groups,name:fayna_channel_bridge.group_channel_bridge_admin
+msgid "Administrator"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__state
+msgid ""
+"Aggregated channel status: disabled / working / check not supported / error"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__attachment_url
+msgid "Attachment URL"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__transport_priority__auto
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__transport__auto
+msgid "Auto (fallback)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_backend.py:0
+#, python-format
+msgid "Availability check for this channel is not implemented yet."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__backend_id
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__backend_id
+msgid "Backend"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__blocking_reason
+msgid "Blocking reason"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__bot_id
+msgid "Bot ID"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__bot_token
+msgid "Bot Token"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__bot_name
+msgid "Bot name"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_conversation__provider_bot_id
+msgid ""
+"Bot/page ID at the provider (to distinguish several bots of one channel)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_connect_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__service
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_connect_wizard__provider_id
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__service
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__service
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__service
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_list
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_search
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_list
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_list
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_search
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
+msgid "Channel"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "Channel %s"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "Channel %s does not require connecting — just embed the widget."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid "Channel %s does not support connecting via an access key."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model,name:fayna_channel_bridge.model_channel_backend
+msgid "Channel Backend (own transport)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.module.category,name:fayna_channel_bridge.module_channel_bridge
+#: model:ir.ui.menu,name:fayna_channel_bridge.menu_channel_bridge_root
+msgid "Channel Bridge"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model,name:fayna_channel_bridge.model_channel_conversation
+msgid "Channel Bridge Conversation"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model,name:fayna_channel_bridge.model_channel_message
+msgid "Channel Bridge Message"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:res.groups,comment:fayna_channel_bridge.group_channel_bridge_admin
+msgid ""
+"Channel Bridge administrator. Full access to channel\n"
+"            settings."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.actions.server,name:fayna_channel_bridge.ir_cron_bridge_archive_old_conversations_ir_actions_server
+msgid "Channel Bridge: Archiving inactive conversations"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.actions.server,name:fayna_channel_bridge.ir_cron_bridge_healthcheck_ir_actions_server
+msgid "Channel Bridge: Own transport healthcheck"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.actions.server,name:fayna_channel_bridge.ir_cron_bridge_retry_ir_actions_server
+msgid "Channel Bridge: Retry of failed sends"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model,name:fayna_channel_bridge.model_channel_provider
+msgid "Channel Provider (channel catalog)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid "Channel connected."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid ""
+"Channel connected. The Viber webhook subscription must be activated "
+"separately in the Viber panel."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid "Channel connected. The webhook was registered automatically."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "Channel disconnected"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "Channel icon"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__service
+msgid "Channel of the direct own transport"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.ui.menu,name:fayna_channel_bridge.menu_channel_bridge_backends
+msgid "Channels"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.actions.act_window,help:fayna_channel_bridge.action_channel_backend
+msgid ""
+"Channels appear after connecting via the \"Connect channels\" menu.\n"
+"                Here you can see the status of each channel, the transport priority\n"
+"                and the result of the last availability check."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_backend.py:0
+#, python-format
+msgid "Check failed"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_backend.py:0
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__state__not_implemented
+#, python-format
+msgid "Check not supported"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_backend.py:0
+#, python-format
+msgid "Check passed"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_provider__region_confirmed
+msgid "Check this if the channel is used outside the listed regions."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_provider__consent_confirmed
+msgid "Check this once the user consent to connect the channel is obtained."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
+msgid "Close conversation"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__stage__close
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
+msgid "Closed"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "Confirm that the channel works outside the restricted regions: %s"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "Confirm the user consent to connect the channel."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__region_confirmed
+msgid "Confirmed: working outside the restricted regions"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_connect_wizard_form
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "Connect"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "Connect %s"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_connect_wizard_form
+msgid "Connect channel"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.actions.act_window,name:fayna_channel_bridge.action_channel_provider
+#: model:ir.ui.menu,name:fayna_channel_bridge.menu_channel_bridge_providers
+msgid "Connect channels"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_connect_wizard_form
+msgid ""
+"Connect this channel now? The system will contact the provider to register "
+"the webhook."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__is_connected
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "Connected"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_connect_wizard__backend_id
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__backend_id
+msgid "Connected backend"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid ""
+"Connecting %s is done manually by the administrator. OAuth authorization is "
+"not implemented yet."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__connect_method
+msgid "Connection method"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__consent_required
+msgid "Consent required"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_list
+msgid "Contact"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_list
+msgid "Contact in channel"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__partner_domain
+msgid "Contact restriction (domain)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
+msgid "Conversation"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.actions.act_window,name:fayna_channel_bridge.action_channel_conversation
+#: model:ir.ui.menu,name:fayna_channel_bridge.menu_channel_bridge_conversations
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_list
+msgid "Conversations"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.actions.act_window,help:fayna_channel_bridge.action_channel_conversation
+msgid ""
+"Conversations appear automatically when a customer writes to a\n"
+"                connected channel (Telegram, Messenger, Viber, etc.). To start\n"
+"                replying — open the conversation and click \"Open in Discuss\"."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__cost_warning
+msgid "Cost warning"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid ""
+"Could not connect the channel. Contact the administrator for diagnostics."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_conversation.py:0
+#, python-format
+msgid "Could not open the chat. Please try again."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid "Could not reach the provider server. Please try again."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__create_uid
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_connect_wizard__create_uid
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__create_uid
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__create_uid
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__create_date
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_connect_wizard__create_date
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__create_date
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__create_date
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__credentials
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+msgid "Credentials (JSON)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__date
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_list
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_list
+msgid "Date"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__description
+msgid "Description"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__provider__direct
+msgid "Direct (own transport)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__direction
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_list
+msgid "Direction"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__state__off
+msgid "Disabled"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "Disconnect"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "Disconnect this channel? Messages will stop flowing."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__channel_id
+msgid "Discuss Channel"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model,name:fayna_channel_bridge.model_discuss_channel
+msgid "Discussion Channel"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__display_name
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_connect_wizard__display_name
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__display_name
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__display_name
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__active
+msgid "Enabled"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__state__error
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__state__failed
+msgid "Error"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__state__failed_permanent
+msgid "Error (permanent)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__facebook
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__facebook
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__facebook
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__facebook
+msgid "Facebook"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__direction__incoming
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_search
+msgid "From customer"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__direction__outgoing
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_search
+msgid "From operator"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_search
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_search
+msgid "Group by"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
+msgid "Has partner"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__has_unconfirmed_preconditions
+msgid "Has unconfirmed preconditions"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__help_url
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
+msgid "How to get an access key?"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__id
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_connect_wizard__id
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__id
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__id
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__id
+msgid "ID"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__stage__in_progress
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
+msgid "In progress"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__instagram
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__instagram
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__instagram
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__instagram
+msgid "Instagram"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid "Invalid token. Check the key in the provider panel."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__credentials
+msgid ""
+"JSON with provider tokens/keys. Stored in plain text (administrators only)."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.ui.menu,name:fayna_channel_bridge.menu_channel_bridge_messages
+msgid "Journal"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__token_placeholder
+msgid "Key format example"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__write_uid
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_connect_wizard__write_uid
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__write_uid
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__write_uid
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__write_date
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_connect_wizard__write_date
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__write_date
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__write_date
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__last_healthcheck_at
+msgid "Last check"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__last_healthcheck_ok
+msgid "Last check OK"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__last_error
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__last_error
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_list
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_list
+msgid "Last error"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__last_message_preview
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_list
+msgid "Last message"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__last_message_date
+msgid "Last message date"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__livechat
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__livechat
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__livechat
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__livechat
+msgid "LiveChat"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+msgid "M4: Switch all to own"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_form
+msgid "Main information"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__text_message
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_form
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_list
+msgid "Message"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_message__provider_message_id
+msgid "Message ID at the provider (Telegram update_id / message_id)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.actions.act_window,name:fayna_channel_bridge.action_channel_message_history
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
+msgid "Message history"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.actions.act_window,name:fayna_channel_bridge.action_channel_message
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_list
+msgid "Message journal"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__messenger
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__messenger
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__messenger
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__messenger
+msgid "Messenger"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+msgid "Metrics"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__name
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__name
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__name
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_list
+msgid "Name"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid "Network problem. Check the connection and try again."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__stage__new
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
+msgid "New"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__stage__new_message
+msgid "New message"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__next_retry_at
+msgid "Next attempt"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
+msgid "No partner"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+#, python-format
+msgid "Not connected"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__connect_method__oauth
+msgid "OAuth"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:res.groups,name:fayna_channel_bridge.group_channel_bridge_officer
+msgid "Officer"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_search
+msgid "Only errors"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "Open channel"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
+msgid "Open in Discuss"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__user_ids
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__user_ids
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
+msgid "Operators"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__user_ids
+msgid "Operators of this channel"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__partner_domain
+msgid ""
+"Optional restriction: accept messages only from contacts with this email "
+"domain."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__sequence
+msgid "Order"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__transport_priority__own
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__transport__own
+msgid "Own"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+msgid "Own transport channel"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.actions.act_window,name:fayna_channel_bridge.action_channel_backend
+msgid "Own transport channels"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__partner_id
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_list
+msgid "Partner"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_connect_wizard_form
+msgid "Paste the access key"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
+msgid "Precondition confirmation"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__precondition_ids
+msgid "Preconditions"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_provider__precondition_ids
+msgid "Preconditions to complete BEFORE connecting (one per line)."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__social_profile_url
+msgid "Profile"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__provider
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_search
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_form
+msgid "Provider"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__provider_bot_id
+msgid "Provider Bot ID"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__provider_message_id
+msgid "Provider Message ID"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__provider_user_id
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__provider_user_id
+msgid "Provider User ID"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__raw_json
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_form
+msgid "Raw JSON"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__state__received
+msgid "Received"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+msgid "Register Telegram webhook"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
+msgid "Reopen"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+msgid "Restrictions"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__retry_count
+msgid "Retry attempts"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+msgid "Retry check"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_search
+msgid "Search channels"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
+msgid "Search conversations"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_search
+msgid "Search messages"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__state__sent
+msgid "Sent"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
+msgid "Show message journal"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__side_effect_warning
+msgid "Side effect warning"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__stage
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_list
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
+msgid "Stage"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__state
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__state
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__status_label
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_list
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_list
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_search
+msgid "Status"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:res.groups,comment:fayna_channel_bridge.group_channel_bridge_officer
+msgid ""
+"Support operator. Reads channels and the message journal of own\n"
+"            transport."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+msgid "Switch ALL channels to own transport?"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__telegram
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__telegram
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__telegram
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__telegram
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_search
+msgid "Telegram"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__bot_token
+msgid ""
+"Telegram Bot Token (api.telegram.org/bot<TOKEN>). Stored in plain text "
+"(administrators only)."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__bot_id
+msgid "Telegram bot username (e.g. @CampScoutBot)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_backend.py:0
+#, python-format
+msgid "The channel is working. The webhook was re-registered."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.actions.act_window,help:fayna_channel_bridge.action_channel_message
+msgid ""
+"The journal records messages that pass through the own transport\n"
+"                of the channels. Here you can see the direction, delivery status\n"
+"                and errors. The \"Only errors\" filter shows messages with the\n"
+"                \"Error\" status."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
+#, python-format
+msgid "The provider rejected the request. Check the key format."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.actions.act_window,help:fayna_channel_bridge.action_channel_conversation
+msgid "There are no conversations yet."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.actions.act_window,help:fayna_channel_bridge.action_channel_message
+msgid "There are no messages yet."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.actions.act_window,help:fayna_channel_bridge.action_channel_backend
+msgid "There are no own transport channels yet."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+msgid "This channel has warnings (cost / side effects). Connect anyway?"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "This channel is not connected."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__tiktok
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__tiktok
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__tiktok
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__tiktok
+msgid "TikTok"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_message__next_retry_at
+msgid ""
+"Time of the next retry attempt (exponential backoff + jitter). Empty — try "
+"on the next cron pass."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__name
+msgid "Timestamp"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__connect_method__token
+msgid "Token"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model,name:fayna_channel_bridge.model_channel_connect_wizard
+msgid "Token channel connection"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__transport
+msgid "Transport"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__transport_priority
+msgid "Transport priority"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__heal_url
+msgid "URL for setWebhook (Telegram) / subscribe (Meta)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__region_blocklist
+msgid "Unavailable regions"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__webhook_path_id
+msgid ""
+"Unique identifier of the Telegram webhook path (generated automatically, "
+"does not contain the bot token)."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_message__provider_user_id
+msgid "User ID at the provider (chat_id for Telegram)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_conversation__provider_user_id
+msgid ""
+"User ID at the provider (chat_id for Telegram, PSID for Messenger, etc.)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__consent_confirmed
+msgid "User consent obtained"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__social_username
+msgid "Username"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__viber
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__viber
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__viber
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__viber
+msgid "Viber"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__webhook_path_id
+msgid "Webhook Path ID"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.constraint,message:fayna_channel_bridge.constraint_channel_backend_channel_backend_webhook_path_id_uniq
+msgid "Webhook Path ID must be unique."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__webhook_secret
+msgid "Webhook Secret"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__heal_url
+msgid "Webhook URL"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__webhook_secret
+msgid ""
+"Webhook signing secret (for Meta X-Hub-Signature-256, Viber Auth-Token)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__whatsapp
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__whatsapp
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__whatsapp
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__whatsapp
+msgid "WhatsApp"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__connect_method__widget
+msgid "Widget"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__state__ok
+msgid "Working"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
+msgid ""
+"cost_warning or side_effect_warning ? 'This channel has warnings (cost / "
+"side effects). Connect anyway?' : ''"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__provider
+msgid "direct = own transport"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__transport_priority
+msgid "own = own transport, auto = fallback"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_conversation__transport
+msgid "own = own transport, auto = own first, fallback on error"
+msgstr ""
