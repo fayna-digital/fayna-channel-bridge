@@ -23,7 +23,7 @@ class TestSplitTextHelper(TransactionCase):
         return self.env['channel.backend'].create(
             {
                 'name': 'Split Test',
-                'service': 'test',
+                'service': 'telegram',
                 'provider': 'direct',
                 'active': True,
             }
@@ -114,7 +114,7 @@ class TestLooksLikeImageHelper(TransactionCase):
         return self.env['channel.backend'].create(
             {
                 'name': 'Image Test',
-                'service': 'test',
+                'service': 'telegram',
                 'provider': 'direct',
                 'active': True,
             }
@@ -160,7 +160,7 @@ class TestActionSwitchAllToOwnHelper(TransactionCase):
         return self.env['channel.backend'].create(
             {
                 'name': f'Backend {transport}',
-                'service': 'test',
+                'service': 'telegram',
                 'provider': 'direct',
                 'active': active,
                 'transport': transport,
