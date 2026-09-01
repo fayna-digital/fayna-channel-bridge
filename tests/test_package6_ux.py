@@ -52,7 +52,9 @@ class TestPackage6PreconditionGate(TransactionCase):
         with self.assertRaises(UserError) as ctx:
             self.tiktok.action_connect()
         message = str(ctx.exception)
-        self.assertIn('manually', message, 'має бути oauth-помилка, а не помилка передумов')
+        self.assertIn(
+            'OAuth authorization', message, 'має бути oauth-помилка, а не помилка передумов'
+        )
         self.assertNotIn('regions', message)
 
     def test_consent_required_without_confirmation_is_blocked(self):

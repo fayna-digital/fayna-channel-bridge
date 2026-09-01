@@ -77,7 +77,7 @@ class TestWhatsAppWebhook(HttpCase):
             {
                 'name': 'WH',
                 'service': self.SERVICE,
-                'provider': 'meta',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.VERIFY_TOKEN,
             }
@@ -93,7 +93,7 @@ class TestWhatsAppWebhook(HttpCase):
             {
                 'name': 'WH',
                 'service': self.SERVICE,
-                'provider': 'meta',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.VERIFY_TOKEN,
             }
@@ -123,7 +123,7 @@ class TestWhatsAppWebhook(HttpCase):
             {
                 'name': 'WH',
                 'service': self.SERVICE,
-                'provider': 'meta',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -142,7 +142,7 @@ class TestWhatsAppWebhook(HttpCase):
             {
                 'name': 'WH',
                 'service': self.SERVICE,
-                'provider': 'meta',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -161,7 +161,7 @@ class TestWhatsAppWebhook(HttpCase):
             {
                 'name': 'WH',
                 'service': self.SERVICE,
-                'provider': 'meta',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -191,7 +191,7 @@ class TestWhatsAppWebhook(HttpCase):
             {
                 'name': 'WH',
                 'service': self.SERVICE,
-                'provider': 'meta',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -212,7 +212,7 @@ class TestWhatsAppWebhook(HttpCase):
             {
                 'name': 'WH',
                 'service': self.SERVICE,
-                'provider': 'meta',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -271,7 +271,7 @@ class TestTikTokWebhook(HttpCase):
             {
                 'name': 'TT',
                 'service': self.SERVICE,
-                'provider': 'tiktok',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -290,7 +290,7 @@ class TestTikTokWebhook(HttpCase):
             {
                 'name': 'TT',
                 'service': self.SERVICE,
-                'provider': 'tiktok',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -309,7 +309,7 @@ class TestTikTokWebhook(HttpCase):
             {
                 'name': 'TT',
                 'service': self.SERVICE,
-                'provider': 'tiktok',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -329,7 +329,7 @@ class TestTikTokWebhook(HttpCase):
             {
                 'name': 'TT',
                 'service': self.SERVICE,
-                'provider': 'tiktok',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -350,7 +350,7 @@ class TestTikTokWebhook(HttpCase):
             {
                 'name': 'TT',
                 'service': self.SERVICE,
-                'provider': 'tiktok',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -407,7 +407,7 @@ class TestLiveChatWebhook(HttpCase):
             {
                 'name': 'LC',
                 'service': self.SERVICE,
-                'provider': 'livechat',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -426,7 +426,7 @@ class TestLiveChatWebhook(HttpCase):
             {
                 'name': 'LC',
                 'service': self.SERVICE,
-                'provider': 'livechat',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -445,7 +445,7 @@ class TestLiveChatWebhook(HttpCase):
             {
                 'name': 'LC',
                 'service': self.SERVICE,
-                'provider': 'livechat',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
@@ -465,7 +465,7 @@ class TestLiveChatWebhook(HttpCase):
             {
                 'name': 'LC',
                 'service': self.SERVICE,
-                'provider': 'livechat',
+                'provider': 'direct',
                 'transport_priority': 'own',
                 'webhook_secret': self.SECRET,
             }
