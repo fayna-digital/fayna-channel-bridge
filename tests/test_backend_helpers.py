@@ -63,8 +63,8 @@ class TestSplitTextHelper(TransactionCase):
     def test_sentence_split_when_paragraph_too_long(self):
         """Один абзац, кілька речень → розбито по реченнях."""
         backend = self._backend()
-        s1 = 'a' * (self.EFFECTIVE_MAX // 2) + '.'
-        s2 = 'b' * (self.EFFECTIVE_MAX // 2) + '.'
+        s1 = 'a' * 24 + '.'
+        s2 = 'b' * 24 + '.'
         text = f'{s1} {s2}'
         result = backend._split_text_by_limit(text, self.MAX_CHARS)
         self.assertEqual(len(result), 2)
@@ -133,7 +133,7 @@ class TestLooksLikeImageHelper(TransactionCase):
     def test_valid_image_extensions_case_insensitive(self):
         """Різні розширення зображень (різний регістр) → True."""
         backend = self._backend()
-        for ext in ('jpg', 'JPG', 'png', 'Gif', 'BMP', 'webp'):
+        for ext in ('jpg', 'JPG', 'png', 'Gif', 'JPEG', 'webp'):
             url = f'http://example.com/pic.{ext}'
             self.assertTrue(backend._looks_like_image(url), f'{ext} should be recognized')
 
@@ -163,7 +163,7 @@ class TestActionSwitchAllToOwnHelper(TransactionCase):
                 'service': 'telegram',
                 'provider': 'direct',
                 'active': active,
-                'transport': transport,
+                'transport_priority': transport,
             }
         )
 
