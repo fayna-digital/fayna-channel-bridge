@@ -20,18 +20,18 @@ _logger = logging.getLogger(__name__)
 
 # Fields on channel.provider that flipped translate=False -> True in 17.0.1.5.0.
 _TRANSLATABLE_FIELDS = [
-    "name",
-    "token_placeholder",
-    "help_url",
-    "description",
-    "precondition_ids",
-    "region_blocklist",
-    "cost_warning",
-    "side_effect_warning",
-    "value_line",
-    "permission_line",
-    "connect_label",
-    "fallback_label",
+    'name',
+    'token_placeholder',
+    'help_url',
+    'description',
+    'precondition_ids',
+    'region_blocklist',
+    'cost_warning',
+    'side_effect_warning',
+    'value_line',
+    'permission_line',
+    'connect_label',
+    'fallback_label',
 ]
 
 
@@ -46,32 +46,33 @@ def _column_is_jsonb(cr, table, column):
         (table, column),
     )
     row = cr.fetchone()
-    return bool(row and row[0] == "jsonb")
+    return bool(row and row[0] == 'jsonb')
 
 
 def migrate(cr, version):
     """Wrap existing plain-text values of translatable fields into jsonb."""
-    table = "channel_provider"
+    from psycopg2 import sql
+
+    table = 'channel_provider'
     converted = 0
     for field in _TRANSLATABLE_FIELDS:
         if _column_is_jsonb(cr, table, field):
             # Already translatable (jsonb) — nothing to convert.
             continue
         # Wrap non-null, non-empty plain values into {"en_US": value}.
-        cr.execute(
-            """
-            UPDATE channel_provider
+        query = sql.SQL("""
+            UPDATE {table}
             SET {field} = jsonb_build_object('en_US', {field})
             WHERE {field} IS NOT NULL AND {field} != ''
-            """.format(field=field)
-        )
+        """).format(table=sql.Identifier(table), field=sql.Identifier(field))
+        cr.execute(query)
         converted += cr.rowcount
 
     if converted:
         _logger.info(
-            "Channel Bridge: wrapped %s plain value(s) into jsonb for "
-            "translatable channel.provider fields",
+            'Channel Bridge: wrapped %s plain value(s) into jsonb for '
+            'translatable channel.provider fields',
             converted,
         )
     else:
-        _logger.info("Channel Bridge: no plain channel.provider values to convert")
+        _logger.info('Channel Bridge: no plain channel.provider values to convert')

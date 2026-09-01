@@ -19,8 +19,6 @@ msgid ""
 "\n"
 "            https://www.odoo.com/documentation/17.0/applications/general/email_communication.html"
 msgstr ""
-"\n"
-"            https://www.odoo.com/documentation/17.0/applications/general/email_communication.html"
 
 #. module: fayna_channel_bridge
 #. odoo-javascript
@@ -280,7 +278,7 @@ msgstr "Канал-бекенд (власний транспорт)"
 #: model:ir.module.category,name:fayna_channel_bridge.module_channel_bridge
 #: model:ir.ui.menu,name:fayna_channel_bridge.menu_channel_bridge_root
 msgid "Channel Bridge"
-msgstr "Channel Bridge"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:ir.model,name:fayna_channel_bridge.model_channel_conversation
@@ -743,7 +741,7 @@ msgstr "ЄЕЗ/ЄС, США"
 #: model:channel.provider,name:fayna_channel_bridge.provider_email
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__email
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,fallback_label:fayna_channel_bridge.provider_email
@@ -786,12 +784,12 @@ msgstr "Зовнішній (маркетплейс)"
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__facebook
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__facebook
 msgid "Facebook"
-msgstr "Facebook"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,name:fayna_channel_bridge.provider_messenger
 msgid "Facebook Messenger"
-msgstr "Facebook Messenger"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,description:fayna_channel_bridge.provider_messenger
@@ -875,7 +873,7 @@ msgstr "Як отримати ключ доступу?"
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_message__id
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__stage__in_progress
@@ -890,7 +888,7 @@ msgstr "В процесі"
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__instagram
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__instagram
 msgid "Instagram"
-msgstr "Instagram"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__ig_account_id
@@ -1015,12 +1013,12 @@ msgstr "Докладніше"
 #. module: fayna_channel_bridge
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__linkedin
 msgid "LinkedIn"
-msgstr "LinkedIn"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,name:fayna_channel_bridge.provider_linkedin_chatbots
 msgid "LinkedIn Chatbots"
-msgstr "LinkedIn Chatbots"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,description:fayna_channel_bridge.provider_linkedin_chatbots
@@ -1032,7 +1030,7 @@ msgstr "Інтеграція чат-ботів LinkedIn доступна з ма
 #: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.xml:0
 #, python-format
 msgid "Live Chat (Odoo)"
-msgstr "Live Chat (Odoo)"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__livechat
@@ -1040,7 +1038,7 @@ msgstr "Live Chat (Odoo)"
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__livechat
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__livechat
 msgid "LiveChat"
-msgstr "LiveChat"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #. odoo-javascript
@@ -1119,7 +1117,7 @@ msgstr "Журнал повідомлень"
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__messenger
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__messenger
 msgid "Messenger"
-msgstr "Messenger"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,fallback_label:fayna_channel_bridge.provider_messenger
@@ -1198,7 +1196,7 @@ msgstr "Не підключено"
 #. module: fayna_channel_bridge
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__connect_method__oauth
 msgid "OAuth"
-msgstr "OAuth"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:res.groups,name:fayna_channel_bridge.group_channel_bridge_officer
@@ -1423,7 +1421,7 @@ msgstr "Повторити перевірку"
 #: model:channel.provider,name:fayna_channel_bridge.provider_sms_chatbots
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__sms
 msgid "SMS"
-msgstr "SMS"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,fallback_label:fayna_channel_bridge.provider_sms_chatbots
@@ -1529,7 +1527,7 @@ msgstr "Перемкнути ВСІ канали на власний транс�
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_search
 msgid "Telegram"
-msgstr "Telegram"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__bot_token
@@ -1553,7 +1551,7 @@ msgstr "Telegram особистий"
 #. module: fayna_channel_bridge
 #: model:channel.provider,name:fayna_channel_bridge.provider_telegram_personal
 msgid "Telegram особистий"
-msgstr "Telegram особистий"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #. odoo-python
@@ -1622,7 +1620,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__tiktok
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__tiktok
 msgid "TikTok"
-msgstr "TikTok"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,description:fayna_channel_bridge.provider_tiktok
@@ -1747,12 +1745,12 @@ msgstr "Рядок вигоди"
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__viber
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__viber
 msgid "Viber"
-msgstr "Viber"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,fallback_label:fayna_channel_bridge.provider_viber
 msgid "Viber Admin Panel"
-msgstr "Viber Admin Panel"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,description:fayna_channel_bridge.provider_viber
@@ -1771,7 +1769,7 @@ msgstr "Viber особистий"
 #. module: fayna_channel_bridge
 #: model:channel.provider,name:fayna_channel_bridge.provider_viber_personal
 msgid "Viber особистий"
-msgstr "Viber особистий"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__webhook_path_id
@@ -1807,12 +1805,12 @@ msgstr ""
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__whatsapp
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__whatsapp
 msgid "WhatsApp"
-msgstr "WhatsApp"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,fallback_label:fayna_channel_bridge.provider_whatsapp
 msgid "WhatsApp Business"
-msgstr "WhatsApp Business"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,description:fayna_channel_bridge.provider_whatsapp
@@ -1909,37 +1907,37 @@ msgstr "direct = власний транспорт"
 #: model:channel.provider,help_url:fayna_channel_bridge.provider_telegram_personal
 #: model:channel.provider,help_url:fayna_channel_bridge.provider_viber_personal
 msgid "https://apps.odoo.com/"
-msgstr "https://apps.odoo.com/"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,help_url:fayna_channel_bridge.provider_whatsapp
 msgid "https://business.whatsapp.com/"
-msgstr "https://business.whatsapp.com/"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,help_url:fayna_channel_bridge.provider_telegram
 msgid "https://core.telegram.org/bots#6-botfather"
-msgstr "https://core.telegram.org/bots#6-botfather"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,help_url:fayna_channel_bridge.provider_instagram
 msgid "https://developers.facebook.com/docs/instagram-platform"
-msgstr "https://developers.facebook.com/docs/instagram-platform"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,help_url:fayna_channel_bridge.provider_messenger
 msgid "https://developers.facebook.com/docs/messenger-platform"
-msgstr "https://developers.facebook.com/docs/messenger-platform"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,help_url:fayna_channel_bridge.provider_tiktok
 msgid "https://developers.tiktok.com/"
-msgstr "https://developers.tiktok.com/"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:channel.provider,help_url:fayna_channel_bridge.provider_viber
 msgid "https://partners.viber.com/"
-msgstr "https://partners.viber.com/"
+msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__transport_priority
