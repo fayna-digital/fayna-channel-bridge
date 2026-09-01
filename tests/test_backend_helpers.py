@@ -156,11 +156,31 @@ class TestActionSwitchAllToOwnHelper(TransactionCase):
     OWN_TRANSPORT = 'own'
     OTHER_TRANSPORT = 'auto'
 
-    def _make_backend(self, active=True, transport=OTHER_TRANSPORT):
+    _service_options = [
+        'telegram',
+        'instagram',
+        'facebook',
+        'messenger',
+        'viber',
+        'whatsapp',
+        'tiktok',
+        'livechat',
+    ]
+    _service_index = 0
+
+    @classmethod
+    def _next_service(cls):
+        svc = cls._service_options[cls._service_index % len(cls._service_options)]
+        cls._service_index += 1
+        return svc
+
+    def _make_backend(self, active=True, transport=OTHER_TRANSPORT, service=None):
+        if service is None:
+            service = self._next_service()
         return self.env['channel.backend'].create(
             {
-                'name': f'Backend {transport}',
-                'service': 'telegram',
+                'name': f'Backend {transport} {service}',
+                'service': service,
                 'provider': 'direct',
                 'active': active,
                 'transport_priority': transport,
