@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0-20260630\n"
+"Project-Id-Version: Odoo Server 17.0-20260217\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-31 02:00+0000\n"
-"PO-Revision-Date: 2026-08-31 02:00+0000\n"
+"POT-Creation-Date: 2026-09-01 10:34+0000\n"
+"PO-Revision-Date: 2026-09-01 10:34+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,43 +16,39 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_email
+msgid ""
+"\n"
+"            https://www.odoo.com/documentation/17.0/applications/general/email_communication.html"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-javascript
 #. odoo-python
 #: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.js:0
 #, python-format
 msgid "%s has been disconnected."
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
-msgid "<i class=\"fa fa-ban me-1\"/> Unavailable:"
+#: model:channel.provider,token_placeholder:fayna_channel_bridge.provider_telegram
+msgid "123456789:AA... (token from BotFather)"
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
-msgid "<i class=\"fa fa-check-square-o me-1\"/> User consent required"
+#: model:channel.provider,precondition_ids:fayna_channel_bridge.provider_messenger
+msgid "A Facebook page and a Meta developer app."
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
-msgid "<i class=\"fa fa-exclamation-circle me-1\" title=\"Side effect\"/>"
+#: model:channel.provider,precondition_ids:fayna_channel_bridge.provider_tiktok
+msgid "A TikTok business account."
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
-msgid "<i class=\"fa fa-exclamation-triangle me-1\" title=\"Cost warning\"/>"
-msgstr ""
-
-#. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
-msgid "<i class=\"fa fa-lock me-1\" title=\"Blocked\"/>"
-msgstr ""
-
-#. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
-msgid ""
-"<span invisible=\"not is_connected\" class=\"badge text-bg-success\">Connected</span>\n"
-"                        <span invisible=\"is_connected\" class=\"badge text-bg-secondary\">Not connected</span>"
+#: model:channel.provider,precondition_ids:fayna_channel_bridge.provider_whatsapp
+msgid "A WhatsApp Business Account verified by Meta."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -60,6 +56,11 @@ msgstr ""
 #: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
 #, python-format
 msgid "A bot with this token was not found. Check the key."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,precondition_ids:fayna_channel_bridge.provider_email
+msgid "A mailbox and its IMAP/SMTP credentials."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -92,9 +93,38 @@ msgid "Administrator"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,side_effect_warning:fayna_channel_bridge.provider_whatsapp
+msgid ""
+"After connecting you lose control over conversations\n"
+"            from the WhatsApp mobile app."
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__state
 msgid ""
 "Aggregated channel status: disabled / working / check not supported / error"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,precondition_ids:fayna_channel_bridge.provider_instagram
+msgid ""
+"An Instagram business account linked to a\n"
+"            Facebook page."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,precondition_ids:fayna_channel_bridge.provider_sms_chatbots
+msgid "An SMS gateway account (e.g. TurboSMS)."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_messenger
+msgid "Answer Messenger conversations without leaving Odoo."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_viber
+msgid "Answer Viber messages from the same inbox."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -106,6 +136,11 @@ msgstr ""
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__transport_priority__auto
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__transport__auto
 msgid "Auto (fallback)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_linkedin_chatbots
+msgid "Automate LinkedIn conversations with chatbot flows."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -164,7 +199,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_list
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_search
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
 msgid "Channel"
 msgstr ""
 
@@ -173,6 +207,15 @@ msgstr ""
 #: code:addons/fayna_channel_bridge/models/channel_provider.py:0
 #, python-format
 msgid "Channel %s"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.js:0
+#, python-format
+msgid ""
+"Channel %s does not require connecting — just embed the widget or configure "
+"it in Odoo settings."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -187,6 +230,35 @@ msgstr ""
 #: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
 #, python-format
 msgid "Channel %s does not support connecting via an access key."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "Channel %s does not use OAuth authorization."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "Channel %s is configured in the Odoo settings."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.js:0
+#, python-format
+msgid ""
+"Channel %s is handled natively by Odoo — configure it in the Odoo settings."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid "Channel %s is not connected through this screen."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -268,7 +340,10 @@ msgid "Channel disconnected"
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.xml:0
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.xml:0
+#, python-format
 msgid "Channel icon"
 msgstr ""
 
@@ -353,17 +428,55 @@ msgid "Confirmed: working outside the restricted regions"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_connect_wizard_form
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+#, python-format
 msgid "Connect"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#. odoo-javascript
 #. odoo-python
 #: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.js:0
 #, python-format
 msgid "Connect %s"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_instagram
+msgid "Connect Instagram"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_messenger
+msgid "Connect Messenger"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_telegram
+msgid "Connect Telegram"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_tiktok
+msgid "Connect TikTok"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_viber
+msgid "Connect Viber"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_whatsapp
+msgid "Connect WhatsApp"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__connect_label
+msgid "Connect button label"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -372,8 +485,11 @@ msgid "Connect channel"
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model:ir.actions.act_window,name:fayna_channel_bridge.action_channel_provider
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.xml:0
+#: model:ir.actions.client,name:fayna_channel_bridge.action_channel_provider
 #: model:ir.ui.menu,name:fayna_channel_bridge.menu_channel_bridge_providers
+#, python-format
 msgid "Connect channels"
 msgstr ""
 
@@ -385,8 +501,17 @@ msgid ""
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_telegram_personal
+msgid "Connect your personal Telegram account via a marketplace app."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_viber_personal
+msgid "Connect your personal Viber via a marketplace app."
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__is_connected
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
 msgid "Connected"
 msgstr ""
 
@@ -398,12 +523,21 @@ msgstr ""
 
 #. module: fayna_channel_bridge
 #. odoo-python
-#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
 #: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
 #, python-format
 msgid ""
 "Connecting %s is done manually by the administrator. OAuth authorization is "
 "not implemented yet."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#, python-format
+msgid ""
+"Connecting %s requires OAuth authorization, which is not configured yet. "
+"Please set up the Meta app first."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -440,7 +574,6 @@ msgstr ""
 #. module: fayna_channel_bridge
 #: model:ir.actions.act_window,name:fayna_channel_bridge.action_channel_conversation
 #: model:ir.ui.menu,name:fayna_channel_bridge.menu_channel_bridge_conversations
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_list
 msgid "Conversations"
 msgstr ""
 
@@ -477,6 +610,16 @@ msgstr ""
 #: code:addons/fayna_channel_bridge/wizard/channel_connect_wizard.py:0
 #, python-format
 msgid "Could not reach the provider server. Please try again."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,precondition_ids:fayna_channel_bridge.provider_telegram
+msgid "Create a bot in BotFather and get a token."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,precondition_ids:fayna_channel_bridge.provider_viber
+msgid "Create a bot in the Viber Admin Panel and get a token."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -532,13 +675,17 @@ msgid "Disabled"
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.xml:0
+#, python-format
 msgid "Disconnect"
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
-msgid "Disconnect this channel? Messages will stop flowing."
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.js:0
+#, python-format
+msgid "Disconnect %s?"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -561,6 +708,29 @@ msgid "Display Name"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,region_blocklist:fayna_channel_bridge.provider_tiktok
+msgid "EEA/EU, USA"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_email
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__email
+msgid "Email"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_email
+msgid "Email docs"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_email
+msgid ""
+"Email is handled natively by Odoo: configure the incoming\n"
+"            and outgoing mail servers in the Odoo settings."
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__active
 msgid "Enabled"
 msgstr ""
@@ -577,11 +747,38 @@ msgid "Error (permanent)"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__connect_method__external
+msgid "External (marketplace)"
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__facebook
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__facebook
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__facebook
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__facebook
 msgid "Facebook"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_messenger
+msgid "Facebook Messenger"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_messenger
+msgid ""
+"Facebook Messenger messages. Connection via\n"
+"            Facebook OAuth authorization."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__fallback_url
+msgid "Fallback link URL"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__fallback_label
+msgid "Fallback link label"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -597,10 +794,27 @@ msgid "From operator"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_linkedin_chatbots
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_telegram_personal
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_viber_personal
+msgid "Go to marketplace"
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_search
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_search
 msgid "Group by"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_whatsapp
+msgid "Handle WhatsApp Business messages from one inbox."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__has_credentials
+msgid "Has credentials"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -614,8 +828,12 @@ msgid "Has unconfirmed preconditions"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_telegram
+msgid "How to get a token"
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__help_url
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
 msgid "How to get an access key?"
 msgstr ""
 
@@ -635,11 +853,36 @@ msgid "In progress"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_instagram
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__instagram
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__instagram
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__instagram
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__instagram
 msgid "Instagram"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_backend__ig_account_id
+msgid "Instagram Account ID"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__ig_account_id
+msgid ""
+"Instagram Business Account ID linked to the parent Facebook page (used by "
+"the Instagram channel, which reuses the parent page token)."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_instagram
+msgid "Instagram Platform docs"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_instagram
+msgid ""
+"Instagram direct messages. Connection via\n"
+"            Meta OAuth authorization."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -663,6 +906,16 @@ msgstr ""
 #. module: fayna_channel_bridge
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__token_placeholder
 msgid "Key format example"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_provider__fallback_label
+msgid "Label of the fallback link (defaults to \"Learn more\")."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_provider__connect_label
+msgid "Label of the single primary button (defaults to \"Connect\")."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -713,6 +966,37 @@ msgid "Last message date"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#. odoo-javascript
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.xml:0
+#, python-format
+msgid "Learn more"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__linkedin
+msgid "LinkedIn"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_linkedin_chatbots
+msgid "LinkedIn Chatbots"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_linkedin_chatbots
+msgid "LinkedIn chatbot integration available from the Odoo marketplace."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.xml:0
+#, python-format
+msgid "Live Chat (Odoo)"
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__livechat
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__livechat
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__livechat
@@ -721,8 +1005,24 @@ msgid "LiveChat"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.xml:0
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.xml:0
+#, python-format
+msgid "Loading…"
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_form
 msgid "M4: Switch all to own"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.js:0
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__category__main
+#, python-format
+msgid "Main"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -730,6 +1030,26 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_form
 msgid "Main information"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_tiktok
+msgid "Manage TikTok direct messages from Odoo."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_linkedin_chatbots
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_telegram_personal
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_viber_personal
+msgid "Marketplace"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.js:0
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__category__marketplace
+#, python-format
+msgid "Marketplace integrations"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -752,7 +1072,6 @@ msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:ir.actions.act_window,name:fayna_channel_bridge.action_channel_message
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_list
 msgid "Message journal"
 msgstr ""
 
@@ -762,6 +1081,11 @@ msgstr ""
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__messenger
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__messenger
 msgid "Messenger"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_messenger
+msgid "Messenger Platform docs"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -775,6 +1099,19 @@ msgstr ""
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__name
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_list
 msgid "Name"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__connect_method__native
+msgid "Native (Odoo)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__state__needs_attention
+#, python-format
+msgid "Needs attention"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -808,7 +1145,14 @@ msgstr ""
 #. module: fayna_channel_bridge
 #. odoo-python
 #: code:addons/fayna_channel_bridge/models/channel_provider.py:0
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__state__not_configured
+#, python-format
+msgid "Not configured"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
 #, python-format
 msgid "Not connected"
 msgstr ""
@@ -824,13 +1168,35 @@ msgid "Officer"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_telegram
+msgid ""
+"Official Telegram messenger. Connection via a bot token\n"
+"            created in BotFather."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_provider__value_line
+msgid "One line: \"what I get\" (benefit of connecting this channel)."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_provider__permission_line
+msgid "One line: \"what I give\" (permissions the channel requires)."
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_message_search
 msgid "Only errors"
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
-msgid "Open channel"
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_email
+msgid "Open Email settings"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,connect_label:fayna_channel_bridge.provider_sms_chatbots
+msgid "Open SMS settings"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -880,6 +1246,16 @@ msgid "Own transport channels"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,cost_warning:fayna_channel_bridge.provider_whatsapp
+msgid "Paid plan: a fee is charged per message."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__category
+msgid "Panel category"
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__partner_id
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_list
 msgid "Partner"
@@ -891,13 +1267,32 @@ msgid "Paste the access key"
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
-msgid "Precondition confirmation"
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__permission_line
+msgid "Permission line"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_telegram_personal
+msgid ""
+"Personal Telegram integration available from the Odoo\n"
+"            marketplace."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_viber_personal
+msgid "Personal Viber integration available from the Odoo marketplace."
 msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__precondition_ids
 msgid "Preconditions"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.js:0
+#, python-format
+msgid "Preconditions are not confirmed."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -940,6 +1335,11 @@ msgid "Raw JSON"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_telegram
+msgid "Receive and reply to customer messages right in Odoo."
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__state__received
 msgid "Received"
 msgstr ""
@@ -952,6 +1352,11 @@ msgstr ""
 #. module: fayna_channel_bridge
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_form
 msgid "Reopen"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_instagram
+msgid "Reply to Instagram direct messages from Odoo."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -970,6 +1375,24 @@ msgid "Retry check"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_sms_chatbots
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__sms
+msgid "SMS"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_sms_chatbots
+msgid "SMS docs"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_sms_chatbots
+msgid ""
+"SMS is handled by the fayna_sms_base and fayna_sms_turbosms\n"
+"            modules. Configure the gateway in the Odoo settings."
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_backend_search
 msgid "Search channels"
 msgstr ""
@@ -985,8 +1408,18 @@ msgid "Search messages"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_sms_chatbots
+msgid "Send and receive SMS through your existing SMS gateway."
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__state__sent
 msgid "Sent"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__connect_method__settings
+msgid "Settings"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -1004,6 +1437,16 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_list
 #: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_conversation_search
 msgid "Stage"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__state
+msgid "State"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__state_label
+msgid "State label"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -1029,6 +1472,7 @@ msgid "Switch ALL channels to own transport?"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_telegram
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__telegram
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__telegram
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__telegram
@@ -1048,6 +1492,16 @@ msgstr ""
 #. module: fayna_channel_bridge
 #: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__bot_id
 msgid "Telegram bot username (e.g. @CampScoutBot)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__telegram_personal
+msgid "Telegram personal"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_telegram_personal
+msgid "Telegram особистий"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -1089,11 +1543,6 @@ msgid "There are no own transport channels yet."
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_kanban
-msgid "This channel has warnings (cost / side effects). Connect anyway?"
-msgstr ""
-
-#. module: fayna_channel_bridge
 #. odoo-python
 #: code:addons/fayna_channel_bridge/models/channel_provider.py:0
 #, python-format
@@ -1101,11 +1550,33 @@ msgid "This channel is not connected."
 msgstr ""
 
 #. module: fayna_channel_bridge
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.js:0
+#, python-format
+msgid ""
+"This channel will be disconnected and messages will stop flowing. You can "
+"reconnect it later."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_tiktok
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__tiktok
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__tiktok
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__tiktok
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__tiktok
 msgid "TikTok"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_tiktok
+msgid ""
+"TikTok direct messages. Connection via TikTok\n"
+"            OAuth authorization."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_tiktok
+msgid "TikTok for Developers"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -1131,6 +1602,11 @@ msgid "Token channel connection"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,token_placeholder:fayna_channel_bridge.provider_viber
+msgid "Token from Viber Admin Panel"
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__transport
 msgid "Transport"
 msgstr ""
@@ -1141,8 +1617,18 @@ msgid "Transport priority"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,value_line:fayna_channel_bridge.provider_email
+msgid "Turn customer emails into conversations in Odoo."
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__heal_url
 msgid "URL for setWebhook (Telegram) / subscribe (Meta)"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields,help:fayna_channel_bridge.field_channel_provider__fallback_url
+msgid "URL of the fallback link (help / manual setup instructions)."
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -1174,16 +1660,51 @@ msgid "User consent obtained"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#. odoo-javascript
+#: code:addons/fayna_channel_bridge/static/src/channel_dashboard/channel_dashboard.xml:0
+#, python-format
+msgid "User consent required"
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_conversation__social_username
 msgid "Username"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:ir.model.fields,field_description:fayna_channel_bridge.field_channel_provider__value_line
+msgid "Value line"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_viber
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__viber
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__viber
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__viber
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__viber
 msgid "Viber"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_viber
+msgid "Viber Admin Panel"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_viber
+msgid ""
+"Viber messenger. Connection via a bot token from the Viber\n"
+"            Admin Panel."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__service__viber_personal
+msgid "Viber personal"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_viber_personal
+msgid "Viber особистий"
 msgstr ""
 
 #. module: fayna_channel_bridge
@@ -1213,6 +1734,7 @@ msgid ""
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,name:fayna_channel_bridge.provider_whatsapp
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__service__whatsapp
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_conversation__service__whatsapp
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_message__service__whatsapp
@@ -1221,25 +1743,129 @@ msgid "WhatsApp"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#: model:channel.provider,fallback_label:fayna_channel_bridge.provider_whatsapp
+msgid "WhatsApp Business"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,description:fayna_channel_bridge.provider_whatsapp
+msgid ""
+"WhatsApp Business Platform. Connection via\n"
+"            Meta OAuth authorization."
+msgstr ""
+
+#. module: fayna_channel_bridge
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__connect_method__widget
 msgid "Widget"
 msgstr ""
 
 #. module: fayna_channel_bridge
+#. odoo-python
+#: code:addons/fayna_channel_bridge/models/channel_provider.py:0
 #: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_backend__state__ok
+#: model:ir.model.fields.selection,name:fayna_channel_bridge.selection__channel_provider__state__working
+#, python-format
 msgid "Working"
 msgstr ""
 
 #. module: fayna_channel_bridge
-#: model_terms:ir.ui.view,arch_db:fayna_channel_bridge.view_channel_provider_form
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_telegram
+msgid "You give access to the bot you create in BotFather."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_viber
 msgid ""
-"cost_warning or side_effect_warning ? 'This channel has warnings (cost / "
-"side effects). Connect anyway?' : ''"
+"You give access to the bot you create in the Viber Admin\n"
+"            Panel."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_email
+msgid "You give access to the mailbox used for incoming mail."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_messenger
+msgid "You give access to your Facebook page and its messages."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_instagram
+msgid "You give access to your Instagram business account."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_linkedin_chatbots
+msgid "You give access to your LinkedIn company page."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_sms_chatbots
+msgid "You give access to your SMS gateway account."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_tiktok
+msgid "You give access to your TikTok business account."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_whatsapp
+msgid "You give access to your WhatsApp Business account."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_telegram_personal
+msgid "You give access to your personal Telegram account."
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,permission_line:fayna_channel_bridge.provider_viber_personal
+msgid "You give access to your personal Viber account."
 msgstr ""
 
 #. module: fayna_channel_bridge
 #: model:ir.model.fields,help:fayna_channel_bridge.field_channel_backend__provider
 msgid "direct = own transport"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_linkedin_chatbots
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_sms_chatbots
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_telegram_personal
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_viber_personal
+msgid "https://apps.odoo.com/"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_whatsapp
+msgid "https://business.whatsapp.com/"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_telegram
+msgid "https://core.telegram.org/bots#6-botfather"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_instagram
+msgid "https://developers.facebook.com/docs/instagram-platform"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_messenger
+msgid "https://developers.facebook.com/docs/messenger-platform"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_tiktok
+msgid "https://developers.tiktok.com/"
+msgstr ""
+
+#. module: fayna_channel_bridge
+#: model:channel.provider,help_url:fayna_channel_bridge.provider_viber
+msgid "https://partners.viber.com/"
 msgstr ""
 
 #. module: fayna_channel_bridge
