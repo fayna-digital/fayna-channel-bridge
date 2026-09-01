@@ -177,9 +177,9 @@ class TestActionSwitchAllToOwnHelper(TransactionCase):
         b1.invalidate_recordset()
         b2.invalidate_recordset()
         b3.invalidate_recordset()
-        self.assertEqual(b1.transport, self.OWN_TRANSPORT)
-        self.assertEqual(b2.transport, self.OWN_TRANSPORT)
-        self.assertEqual(b3.transport, self.OTHER_TRANSPORT)
+        self.assertEqual(b1.transport_priority, self.OWN_TRANSPORT)
+        self.assertEqual(b2.transport_priority, self.OWN_TRANSPORT)
+        self.assertEqual(b3.transport_priority, self.OTHER_TRANSPORT)
 
     def test_no_switch_when_all_own(self):
         """Всі активні вже на `own` → повертає 0, нічого не змінює."""
@@ -187,7 +187,7 @@ class TestActionSwitchAllToOwnHelper(TransactionCase):
         count = self.env['channel.backend'].action_switch_all_to_own()
         self.assertEqual(count, 0)
         b.invalidate_recordset()
-        self.assertEqual(b.transport, self.OWN_TRANSPORT)
+        self.assertEqual(b.transport_priority, self.OWN_TRANSPORT)
 
     def test_inactive_backends_not_switched(self):
         """Неактивний бекенд з іншим транспортом не враховується."""
@@ -195,7 +195,7 @@ class TestActionSwitchAllToOwnHelper(TransactionCase):
         count = self.env['channel.backend'].action_switch_all_to_own()
         self.assertEqual(count, 0)
         b.invalidate_recordset()
-        self.assertEqual(b.transport, self.OTHER_TRANSPORT)
+        self.assertEqual(b.transport_priority, self.OTHER_TRANSPORT)
 
 
 class TestActionRetryCheckHelper(TransactionCase):
