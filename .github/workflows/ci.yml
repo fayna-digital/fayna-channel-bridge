@@ -68,13 +68,13 @@ jobs:
             -e HOST=localhost -e PORT=5432 -e USER=odoo -e PASSWORD=odoo \
             odoo:17.0 \
             sh -c "
-              pip install coverage --break-system-packages --quiet
+              python3 -m pip install coverage --quiet
               cd /mnt/extra-addons/fayna_channel_bridge
-              coverage run -m odoo --db_host=localhost --db_port=5432 --db_user=odoo --db_password=odoo \
+              python3 -m coverage run -m odoo --db_host=localhost --db_port=5432 --db_user=odoo --db_password=odoo \
                 -d fayna_bridge_test --stop-after-init -i fayna_channel_bridge \
                 --test-enable --test-tags /fayna_channel_bridge --http-port=8071 2>&1
               test_exit_code=\$?
-              coverage report
+              python3 -m coverage report
               exit \$test_exit_code
             ")
           exit_code=$?
