@@ -2,6 +2,7 @@
 # License LGPL-3 (GNU Lesser General Public License v3.0).
 from . import (
     test_archive_feature,
+    test_backend_helpers,
     test_connect_wizard,
     test_m3_webhooks,
     test_operator_end_to_end,
