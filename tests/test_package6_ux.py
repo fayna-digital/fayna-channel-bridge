@@ -1,5 +1,5 @@
 # Copyright 2026 Fayna Digital — Volodymyr Shevchenko
-# License OPL-1 (Odoo Proprietary License v1.0).
+# License LGPL-3 (GNU Lesser General Public License v3.0).
 """Тести Пакета 6, Е-2 — серверний гейт передумов (UX-16).
 
 Покриває:

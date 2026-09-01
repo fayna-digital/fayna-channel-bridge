@@ -1,5 +1,5 @@
 # Copyright 2026 Fayna Digital — Volodymyr Shevchenko
-# License OPL-1 (Odoo Proprietary License v1.0).
+# License LGPL-3 (GNU Lesser General Public License v3.0).
 """Модель-каталог `channel.provider` — декларативний довідник каналів.
 
 Новий канал додається рядком даних, а не новим Python-кодом (FR-67, T-127).

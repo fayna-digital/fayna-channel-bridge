@@ -1,5 +1,5 @@
 # Copyright 2026 Fayna Digital — Volodymyr Shevchenko
-# License OPL-1 (Odoo Proprietary License v1.0).
+# License LGPL-3 (GNU Lesser General Public License v3.0).
 """Тести галереї «Підключити канали» (OWL-SPA, ТЗ_OMNI_DASHBOARD_OWL.md).
 
 Покриває (перенесено з Пакета 3, В-3, під новий client action):

@@ -1,5 +1,5 @@
 # Copyright 2026 Fayna Digital — Volodymyr Shevchenko
-# License OPL-1 (Odoo Proprietary License v1.0).
+# License LGPL-3 (GNU Lesser General Public License v3.0).
 """Тести Пакету 5 — Д-1 (галерея) та Д-2 (UX-дрібне), перенесені під OWL-SPA.
 
 Пакет 9 (штатні kanban/form вигляди галереї) скасовано ТЗ_OMNI_DASHBOARD_OWL.md:

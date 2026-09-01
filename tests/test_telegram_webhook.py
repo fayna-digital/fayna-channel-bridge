@@ -1,5 +1,5 @@
 # Copyright 2026 Fayna Digital — Volodymyr Shevchenko
-# License OPL-1 (Odoo Proprietary License v1.0).
+# License LGPL-3 (GNU Lesser General Public License v3.0).
 """Тести власного транспорту (fayna_channel_bridge) — M0 Telegram пілот.
 
 Покриває:

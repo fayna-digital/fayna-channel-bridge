@@ -1,5 +1,5 @@
 # Copyright 2026 Fayna Digital — Volodymyr Shevchenko
-# License OPL-1 (Odoo Proprietary License v1.0).
+# License LGPL-3 (GNU Lesser General Public License v3.0).
 """Wizard підключення token-каналів (Telegram, Viber) — Пакет 3, В-4.
 
 Кнопка «Підключити» на token-каналі відкриває цей wizard з одним полем вводу
