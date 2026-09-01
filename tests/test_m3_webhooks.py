@@ -118,7 +118,7 @@ class TestWhatsAppWebhook(HttpCase):
         self.assertEqual(r.status_code, 404)
 
     def test_post_empty_body(self):
-        """POST з порожнім тілом → 400 і без запису."""
+        """POST з порожнім тілом → 200 (error) і без запису."""
         self.env['channel.backend'].create(
             {
                 'name': 'WH',
@@ -128,12 +128,14 @@ class TestWhatsAppWebhook(HttpCase):
                 'webhook_secret': self.SECRET,
             }
         )
-        r = self.url_open(
-            '/bridge/whatsapp/webhook',
+        r = self.opener.post(
+            self.base_url() + '/bridge/whatsapp/webhook',
             data=b'',
             headers={'Content-Type': 'application/json'},
         )
-        self.assertEqual(r.status_code, 400)
+        self.assertEqual(r.status_code, 200)
+        resp = json.loads(r.text or '{}')
+        self.assertEqual(resp.get('status'), 'error')
         self.assertEqual(self._incoming_count(), 0)
 
     def test_post_invalid_json(self):
@@ -266,7 +268,7 @@ class TestTikTokWebhook(HttpCase):
         self.assertEqual(r.status_code, 404)
 
     def test_post_empty_body(self):
-        """POST з порожнім тілом → 400 і без запису."""
+        """POST з порожнім тілом → 200 (error) і без запису."""
         self.env['channel.backend'].create(
             {
                 'name': 'TT',
@@ -276,12 +278,14 @@ class TestTikTokWebhook(HttpCase):
                 'webhook_secret': self.SECRET,
             }
         )
-        r = self.url_open(
-            '/bridge/tiktok/webhook',
+        r = self.opener.post(
+            self.base_url() + '/bridge/tiktok/webhook',
             data=b'',
             headers={'Content-Type': 'application/json', 'X-Bridge-Secret': ''},
         )
-        self.assertEqual(r.status_code, 400)
+        self.assertEqual(r.status_code, 200)
+        resp = json.loads(r.text or '{}')
+        self.assertEqual(resp.get('status'), 'error')
         self.assertEqual(self._incoming_count(), 0)
 
     def test_post_invalid_json(self):
@@ -402,7 +406,7 @@ class TestLiveChatWebhook(HttpCase):
         self.assertEqual(r.status_code, 404)
 
     def test_post_empty_body(self):
-        """POST з порожнім тілом → 400 і без запису."""
+        """POST з порожнім тілом → 200 (error) і без запису."""
         self.env['channel.backend'].create(
             {
                 'name': 'LC',
@@ -412,12 +416,14 @@ class TestLiveChatWebhook(HttpCase):
                 'webhook_secret': self.SECRET,
             }
         )
-        r = self.url_open(
-            '/bridge/livechat/webhook',
+        r = self.opener.post(
+            self.base_url() + '/bridge/livechat/webhook',
             data=b'',
             headers={'Content-Type': 'application/json', 'X-Bridge-Secret': ''},
         )
-        self.assertEqual(r.status_code, 400)
+        self.assertEqual(r.status_code, 200)
+        resp = json.loads(r.text or '{}')
+        self.assertEqual(resp.get('status'), 'error')
         self.assertEqual(self._incoming_count(), 0)
 
     def test_post_invalid_json(self):
