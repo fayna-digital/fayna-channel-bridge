@@ -154,7 +154,7 @@ class TestActionSwitchAllToOwnHelper(TransactionCase):
     """Тести для методу `action_switch_all_to_own`."""
 
     OWN_TRANSPORT = 'own'
-    OTHER_TRANSPORT = 'other'
+    OTHER_TRANSPORT = 'auto'
 
     def _make_backend(self, active=True, transport=OTHER_TRANSPORT):
         return self.env['channel.backend'].create(
