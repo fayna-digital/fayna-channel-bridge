@@ -31,11 +31,9 @@
     """,
     'author': 'Fayna Digital — Volodymyr Shevchenko',
     'website': 'https://fayna.agency',
-    'license': 'OPL-1',
+    'license': 'LGPL-3',
     'category': 'Discuss',
     'images': ['static/description/banner.png'],
-    'price': 49,
-    'currency': 'EUR',
     # `web` додано явно: OWL-SPA «Підключити канали» (Фаза 1) реєструє client
     # action у `registry.category("actions")` і залежить від web-сервісів
     # (orm, action, dialog, notification). `mail` сам залежить від `web`, але

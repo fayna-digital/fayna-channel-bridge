@@ -140,5 +140,5 @@ class TestProviderGallery(TransactionCase):
             )
             # native/external — статусу підключення немає взагалі (§2.3-bis).
             if item['connect_method'] in ('native', 'external'):
-                self.assertFalse(item['state'], f"{item['name']} не має стану")
-                self.assertFalse(item['is_connected'], f"{item['name']} не підключено")
+                self.assertFalse(item['state'], f'{item["name"]} не має стану')
+                self.assertFalse(item['is_connected'], f'{item["name"]} не підключено')
