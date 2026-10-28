@@ -1,27 +1,31 @@
-# МІСТ — стан роботи на 2026-10-28 10:06 UTC
+# МІСТ — стан роботи на 2026-10-28 10:08 UTC
 
 > Це **знімок**, а не істина. Перед дією звір факти командою
 > (закон АНТИБРЕХНЯ — запис ≠ стан).
 
 ## Де ми
 
-Етапи 1–2 консолідації закриті, зелені, запушені: `origin/main = e8b2196`.
-**Етап 3 (транспортні хелпери) — код написаний, але НЕ доведений і НЕ закомічений.**
+Етапи 1–2 консолідації закриті, зелені, запушені.
+**Етап 3 (транспортні хелпери) — закомічений і запушений: `fa5e423`.**
+Але його 5 нових тестів **ще жодного разу не виконувались** — див. факт 3.
 
-## Незакомічені зміни
+## Стан репозиторію
 
-HEAD `e8b2196`, гілка `main`, remote `VladSh77/fayna-channel-bridge`.
+HEAD `fa5e423`, гілка `main`, remote `VladSh77/fayna-channel-bridge`,
+робоче дерево чисте, локально = віддалено.
 
-| файл | стан | що це |
-|---|---|---|
-| `models/channel_backend.py` | M (+175) | `_http_post_with_retries`, `_log_delivery`, 7 місць виклику |
-| `models/channel_delivery_log.py` | ?? новий | модель `channel.delivery.log` — технічний журнал доставки |
-| `models/__init__.py` | M (+1) | імпорт нової моделі |
-| `security/ir.model.access.csv` | M (+2) | ACL officer/admin на нову модель |
-| `__manifest__.py` | M | версія `17.0.1.6.0` → `17.0.1.7.0` |
-| `ci/docker-compose.test.yml` | M (+5) | `-u fayna_channel_bridge` у сервісі `tests` |
-| `tests/test_transport_retry.py` | ?? новий, 7180 B | 5 тестів на retry/лог — **НЕ ЗАПУСКАЮТЬСЯ** |
-| `HANDOFF.md` | ?? | цей файл |
+Що увійшло в `fa5e423` (8 файлів, +495/−8):
+
+| файл | що це |
+|---|---|
+| `models/channel_backend.py` | `_http_post_with_retries`, `_log_delivery`, 7 місць виклику |
+| `models/channel_delivery_log.py` | модель `channel.delivery.log` — технічний журнал доставки |
+| `models/__init__.py` | імпорт нової моделі |
+| `security/ir.model.access.csv` | ACL officer/admin на нову модель |
+| `__manifest__.py` | версія `17.0.1.6.0` → `17.0.1.7.0` |
+| `ci/docker-compose.test.yml` | `-u fayna_channel_bridge` у сервісі `tests` |
+| `tests/test_transport_retry.py` | 5 тестів на retry/лог — **НЕ ЗАПУСКАЮТЬСЯ** |
+| `HANDOFF.md` | цей файл |
 
 ## Доведені факти (команда → результат)
 
@@ -53,11 +57,17 @@ HEAD `e8b2196`, гілка `main`, remote `VladSh77/fayna-channel-bridge`.
    `0 failed, 0 error(s)`.
 4. Лише після цього коміт етапу 3.
 
+4. **Етап 3 закомічений і запушений.**
+   `git commit` → `fa5e423`, `git push origin main` → `e8b2196..fa5e423`,
+   `git ls-remote origin refs/heads/main` → `fa5e423…` (локально = віддалено).
+   AI-підписів у повідомленні: `grep -ciE "co-authored|generated with|claude|anthropic"` → `0`.
+
 ## Що НЕ закрито
 
 - 5 нових тестів не виконувались → поведінка retry/логу **не доведена** тестом.
-- Етап 3 не закомічений.
-- `HANDOFF.md` — робочий файл, у коміт не входить (або входить окремим `docs:`-комітом).
+  Коміт `fa5e423` містить код і тести, але тести — «сплячі».
+- `HANDOFF.md` увійшов у коміт `fa5e423` (робочий файл у репо — прибрати або
+  перенести в `docs/` наступною сесією).
 
 ## Рішення власника, які діють
 
