@@ -1,7 +1,18 @@
 # =============================================================
 # Fayna Channel Bridge — ізольоване тестове середовище (Docker)
-# Запуск: docker compose -f docker-compose.test.yml up
-# Тести:  docker compose -f docker-compose.test.yml exec web pytest
+#
+# Стенд (постійний сервер для ручних перевірок):
+#   docker compose -f ci/docker-compose.test.yml up -d
+#
+# Тести (окремий контейнер, БЕЗ постійного сервера):
+#   docker compose -f ci/docker-compose.test.yml run --rm tests
+#
+# ВАЖЛИВО: тести НЕ можна ганяти через `exec` у контейнері `web` —
+# там уже слухає порт 8069 постійний сервер, тестовий HTTP-сервер не
+# може зайняти порт (OSError: Address already in use), і HttpCase
+# починає ходити на ЧУЖИЙ сервер, який не бачить тестової транзакції
+# → усі webhook-тести отримують 404. Сервіс `tests` існує саме для
+# цього: він піднімає власний HTTP на 8070 і не конфліктує з `web`.
 # =============================================================
 
 services:
@@ -49,6 +60,35 @@ services:
       timeout: 10s
       retries: 3
       start_period: 120s
+    networks:
+      - fayna_bridge_test
+
+  # Одноразовий контейнер для прогону тестів.
+  # Не тримає постійного сервера → тестовий HTTP-сервер сам займає 8070.
+  # Запуск: docker compose -f ci/docker-compose.test.yml run --rm tests
+  tests:
+    image: odoo:17.0
+    container_name: fayna_bridge_test_runner
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      HOST: db
+      PORT: 5432
+      USER: odoo
+      PASSWORD: ${DB_PASSWORD:-odoo}
+      DB_NAME: fayna_bridge_test
+    volumes:
+      - ../:/mnt/extra-addons/fayna_channel_bridge
+    # --http-port=8070: не конфліктує з постійним сервером `web` на 8069.
+    # --workers=0: HttpCase потребує однопроцесного режиму (спільний реєстр).
+    command: >
+      odoo --db_host=db --db_port=5432 --db_user=odoo
+      --db_password=${DB_PASSWORD:-odoo}
+      -d fayna_bridge_test
+      --http-port=8070
+      --test-enable --test-tags=/fayna_channel_bridge
+      --stop-after-init --log-level=test --workers=0
     networks:
       - fayna_bridge_test
 
