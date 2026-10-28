@@ -13,6 +13,7 @@ from . import (
     test_provider_gallery,
     test_security_groups,
     test_telegram_webhook,
+    test_transport_retry,
     test_ui_operator,
     test_webhook_auth,
 )

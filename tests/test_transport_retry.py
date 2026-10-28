@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Тести спільного HTTP-транспорту: повторні спроби й журнал доставки.
 
 Що саме доводимо (і чому саме так):
@@ -19,7 +18,6 @@
 from unittest.mock import MagicMock, patch
 
 import requests
-
 from odoo.tests.common import TransactionCase
 
 
@@ -51,14 +49,22 @@ class TestTransportRetry(TransactionCase):
         return self.DeliveryLog.search([('backend_id', '=', self.backend.id)])
 
     def test_retries_on_temporary_status_then_succeeds(self):
-        """503 → 503 → 200: три спроби, успіх, три рядки в журналі."""
+        """503 → 503 → 200: три спроби, успіх, ОДИН рядок журналу.
+
+        Контракт журналу: один рядок на завершений виклик, а не на кожну
+        спробу. Оператору потрібна відповідь «дійшло чи ні і з якої спроби»,
+        а не три рядки шуму на кожне повідомлення. Кількість спроб видно
+        в полі `attempts`.
+        """
         responses = [
             self._response(503, 'Service Unavailable'),
             self._response(503, 'Service Unavailable'),
             self._response(200, 'ok'),
         ]
-        with patch('odoo.addons.fayna_channel_bridge.models.channel_backend.requests.post') as post, \
-                patch('odoo.addons.fayna_channel_bridge.models.channel_backend.time.sleep'):
+        with (
+            patch('odoo.addons.fayna_channel_bridge.models.channel_backend.requests.post') as post,
+            patch('odoo.addons.fayna_channel_bridge.models.channel_backend.time.sleep'),
+        ):
             post.side_effect = responses
             resp = self.backend._http_post_with_retries(
                 'https://api.example.test/send',
@@ -71,16 +77,19 @@ class TestTransportRetry(TransactionCase):
         self.assertTrue(resp.ok)
 
         logs = self._logs()
-        self.assertEqual(len(logs), 3, 'кожна спроба лишає слід у журналі')
-        self.assertEqual(sorted(logs.mapped('status_code')), [200, 503, 503])
-        self.assertEqual(len(logs.filtered('ok')), 1, 'успішна лише одна')
-        self.assertEqual(set(logs.mapped('external_thread_id')), {'chat-42'})
-        self.assertEqual(set(logs.mapped('event_type')), {'message'})
+        self.assertEqual(len(logs), 1, 'один рядок на завершений виклик')
+        self.assertEqual(logs.status_code, 200, 'фіксуємо результат останньої спроби')
+        self.assertTrue(logs.ok)
+        self.assertEqual(logs.attempts, 3, 'кількість спроб видно в журналі')
+        self.assertEqual(logs.external_thread_id, 'chat-42')
+        self.assertEqual(logs.event_type, 'message')
 
     def test_does_not_retry_on_permanent_client_error(self):
         """400 — це помилка запиту, а не збою: одна спроба, без сну."""
-        with patch('odoo.addons.fayna_channel_bridge.models.channel_backend.requests.post') as post, \
-                patch('odoo.addons.fayna_channel_bridge.models.channel_backend.time.sleep') as sleep:
+        with (
+            patch('odoo.addons.fayna_channel_bridge.models.channel_backend.requests.post') as post,
+            patch('odoo.addons.fayna_channel_bridge.models.channel_backend.time.sleep') as sleep,
+        ):
             post.return_value = self._response(400, 'Bad Request: invalid token')
             resp = self.backend._http_post_with_retries('https://api.example.test/send')
 
@@ -95,9 +104,22 @@ class TestTransportRetry(TransactionCase):
         self.assertIn('invalid token', logs.error_snippet)
 
     def test_raises_after_network_failures_exhausted(self):
-        """Мережевий виняток на всіх спробах — піднімається назовні."""
-        with patch('odoo.addons.fayna_channel_bridge.models.channel_backend.requests.post') as post, \
-                patch('odoo.addons.fayna_channel_bridge.models.channel_backend.time.sleep'):
+        """Мережевий виняток на всіх спробах — піднімається назовні.
+
+        Журнал пишеться ДО `raise`, але в `TransactionCase` виняток
+        відкочує транзакцію разом із цим записом. Тому перевіряємо не
+        рядок у БД, а сам факт виклику `_log_delivery` з правильними
+        аргументами — це і є контракт «фінальний збій зафіксовано».
+        """
+        with (
+            patch('odoo.addons.fayna_channel_bridge.models.channel_backend.requests.post') as post,
+            patch('odoo.addons.fayna_channel_bridge.models.channel_backend.time.sleep'),
+            patch.object(
+                type(self.backend),
+                '_log_delivery',
+                autospec=True,
+            ) as log_delivery,
+        ):
             post.side_effect = requests.ConnectionError('connection reset')
             with self.assertRaises(requests.ConnectionError):
                 self.backend._http_post_with_retries(
@@ -106,17 +128,23 @@ class TestTransportRetry(TransactionCase):
                 )
 
         self.assertEqual(post.call_count, 2, 'max_attempts=2 → рівно дві спроби')
-        logs = self._logs()
-        self.assertEqual(len(logs), 1, 'фіксуємо лише фінальний збій')
-        self.assertFalse(logs.ok)
-        self.assertEqual(logs.status_code, 0)
-        self.assertEqual(logs.attempts, 2)
-        self.assertIn('connection reset', logs.error_snippet)
+        self.assertEqual(
+            log_delivery.call_count,
+            1,
+            'фіксуємо лише фінальний збій, не кожну спробу',
+        )
+        kwargs = log_delivery.call_args.kwargs
+        self.assertFalse(kwargs['ok'])
+        self.assertEqual(kwargs['status_code'], 0)
+        self.assertEqual(kwargs['attempts'], 2)
+        self.assertIn('connection reset', kwargs['error'])
 
     def test_error_snippet_masks_secrets(self):
         """Токен у тілі помилки не має потрапляти в журнал відкритим."""
-        with patch('odoo.addons.fayna_channel_bridge.models.channel_backend.requests.post') as post, \
-                patch('odoo.addons.fayna_channel_bridge.models.channel_backend.time.sleep'):
+        with (
+            patch('odoo.addons.fayna_channel_bridge.models.channel_backend.requests.post') as post,
+            patch('odoo.addons.fayna_channel_bridge.models.channel_backend.time.sleep'),
+        ):
             post.return_value = self._response(
                 401,
                 'Unauthorized: token 123456:TEST-TOKEN-SECRET rejected',
