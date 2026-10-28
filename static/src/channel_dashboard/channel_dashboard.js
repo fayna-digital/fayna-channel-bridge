@@ -77,8 +77,12 @@ export class ChannelDashboard extends Component {
     /**
      * Канали, згруповані за полем `category`, у порядку CATEGORY_ORDER.
      * Склад категорій — з даних, порядок категорій — тут (ТЗ §2.3).
+     *
+     * Геттер, а не метод: шаблон читає `groupedProviders[category]` як
+     * властивість (як `categoryOrder` / `categoryLabels`). Виклик методу з
+     * шаблону перераховував групування двічі на кожну категорію.
      */
-    _groupedProviders() {
+    get groupedProviders() {
         const groups = {};
         for (const category of CATEGORY_ORDER) {
             groups[category] = [];
@@ -93,7 +97,7 @@ export class ChannelDashboard extends Component {
     }
 
     _orderedProviders() {
-        const groups = this._groupedProviders();
+        const groups = this.groupedProviders;
         return CATEGORY_ORDER.flatMap((category) => groups[category] || []);
     }
 
