@@ -3,6 +3,7 @@ import logging
 import random
 import re
 import secrets
+import time
 from datetime import timedelta
 
 import requests
@@ -349,7 +350,12 @@ class ChannelBackend(models.Model):
             }
 
         try:
-            resp = requests.post(endpoint, json=payload, timeout=self._META_API_TIMEOUT)
+            resp = self._http_post_with_retries(
+                endpoint,
+                json=payload,
+                timeout=self._META_API_TIMEOUT,
+                external_thread_id=provider_user_id,
+            )
             _logger.info(
                 'Channel Bridge: Meta send status=%s body=%s',
                 resp.status_code,
@@ -396,10 +402,11 @@ class ChannelBackend(models.Model):
                 'media': attachment_url,
             }
         try:
-            resp = requests.post(
+            resp = self._http_post_with_retries(
                 f'{self._VIBER_API}/pa/send_message',
                 json=payload,
                 timeout=self._VIBER_API_TIMEOUT,
+                external_thread_id=provider_user_id,
             )
             _logger.info(
                 'Channel Bridge: Viber send status=%s body=%s',
@@ -454,11 +461,12 @@ class ChannelBackend(models.Model):
             }
         headers = {'Authorization': f'Bearer {token}'}
         try:
-            resp = requests.post(
+            resp = self._http_post_with_retries(
                 endpoint,
                 json=payload,
                 headers=headers,
                 timeout=self._WHATSAPP_API_TIMEOUT,
+                external_thread_id=provider_user_id,
             )
             _logger.info(
                 'Channel Bridge: WhatsApp send status=%s body=%s',
@@ -502,11 +510,12 @@ class ChannelBackend(models.Model):
             'Content-Type': 'application/json',
         }
         try:
-            resp = requests.post(
+            resp = self._http_post_with_retries(
                 endpoint,
                 json=payload,
                 headers=headers,
                 timeout=self._TIKTOK_API_TIMEOUT,
+                external_thread_id=provider_user_id,
             )
             _logger.info(
                 'Channel Bridge: TikTok send status=%s body=%s',
@@ -549,11 +558,12 @@ class ChannelBackend(models.Model):
         }
         headers = {'Authorization': f'Bearer {token}'}
         try:
-            resp = requests.post(
+            resp = self._http_post_with_retries(
                 endpoint,
                 json=payload,
                 headers=headers,
                 timeout=self._LIVECHAT_API_TIMEOUT,
+                external_thread_id=provider_user_id,
             )
             _logger.info(
                 'Channel Bridge: LiveChat send status=%s body=%s',
@@ -591,7 +601,12 @@ class ChannelBackend(models.Model):
                 endpoint = f'{base}/sendMessage'
                 payload = {'chat_id': provider_user_id, 'text': text}
 
-            resp = requests.post(endpoint, json=payload, timeout=self._TELEGRAM_API_TIMEOUT)
+            resp = self._http_post_with_retries(
+                endpoint,
+                json=payload,
+                timeout=self._TELEGRAM_API_TIMEOUT,
+                external_thread_id=provider_user_id,
+            )
             _logger.info(
                 'Channel Bridge: TG send status=%s body=%s',
                 resp.status_code,
@@ -709,10 +724,11 @@ class ChannelBackend(models.Model):
             self.webhook_path_id = secrets.token_urlsafe(24)
         webhook_url = f'{base_url}/bridge/telegram/webhook/{self.webhook_path_id}'
         try:
-            resp = requests.post(
+            resp = self._http_post_with_retries(
                 f'{self._TELEGRAM_API}/bot{token}/setWebhook',
                 json={'url': webhook_url, 'secret_token': self.webhook_secret},
                 timeout=self._TELEGRAM_API_TIMEOUT,
+                event_type='set_webhook',
             )
             data = resp.json()
             if resp.status_code == 200 and data.get('ok'):
@@ -737,6 +753,155 @@ class ChannelBackend(models.Model):
     # Повідомлення для каналів, чия перевірка доступності ще не реалізована.
     # HC-02: не показуємо зелений статус, який не залежить від реальності.
     _HEALTHCHECK_NOT_IMPLEMENTED = 'Healthcheck for this channel is not implemented yet'
+
+    # ════════════════════════════════════════════════════════════════════
+    # Спільний HTTP-транспорт: повтор і журнал доставки
+    # ════════════════════════════════════════════════════════════════════
+    # Раніше кожен `_*_send_single` викликав `requests.post` напряму: один
+    # мережевий збій (таймаут, 503, обрив TLS) — і повідомлення падало без
+    # жодної спроби повторити, а сліду про спробу не лишалося ніде, крім
+    # вільного тексту в лог-файлі. Два хелпери нижче закривають обидві діри
+    # для ВСІХ каналів одразу, без дублювання логіки в кожному транспорті.
+
+    # Коди, які провайдер віддає тимчасово: 429 (rate limit) і 5xx.
+    # 4xx крім 429 повторювати марно — це помилка запиту, не збою.
+    _HTTP_RETRY_STATUSES = (429, 500, 502, 503, 504)
+    _HTTP_MAX_ATTEMPTS = 4
+    _HTTP_BACKOFF_START = 1.0
+    _HTTP_BACKOFF_CAP = 16.0
+
+    def _http_post_with_retries(
+        self,
+        url,
+        *,
+        json=None,
+        params=None,
+        headers=None,
+        timeout=30,
+        max_attempts=None,
+        event_type='message',
+        external_thread_id=None,
+    ):
+        """POST із повторними спробами на тимчасових збоях.
+
+        Повертає `requests.Response` останньої спроби. Якщо всі спроби
+        впали на мережевому рівні — піднімає `requests.RequestException`
+        (виклик має сам вирішити, як це подати оператору).
+
+        Затримка між спробами подвоюється: 1 → 2 → 4 → 8 с (кап 16 с).
+        Повторюємо лише те, що має сенс повторити: мережевий виняток і
+        коди з `_HTTP_RETRY_STATUSES`. Решта 4xx повертається одразу —
+        інакше невалідний токен коштував би чотирьох спроб і 15 секунд.
+
+        Кожна спроба лишає рядок у `channel.delivery.log` (через
+        `_log_delivery`), тому «чому не дійшло» видно без здогадів.
+        """
+        attempts = max_attempts or self._HTTP_MAX_ATTEMPTS
+        delay = self._HTTP_BACKOFF_START
+        last_resp = None
+        last_exc = None
+
+        for attempt in range(1, attempts + 1):
+            try:
+                resp = requests.post(
+                    url,
+                    json=json,
+                    params=params,
+                    headers=headers,
+                    timeout=timeout,
+                )
+            except requests.RequestException as exc:
+                last_exc = exc
+                last_resp = None
+                _logger.warning(
+                    'Channel Bridge: HTTP POST attempt %s/%s failed — %s (%s)',
+                    attempt,
+                    attempts,
+                    url[:80],
+                    exc,
+                )
+                if attempt >= attempts:
+                    self._log_delivery(
+                        url=url,
+                        ok=False,
+                        status_code=0,
+                        error=str(exc),
+                        attempts=attempt,
+                        event_type=event_type,
+                        external_thread_id=external_thread_id,
+                    )
+                    raise
+                time.sleep(delay)
+                delay = min(delay * 2, self._HTTP_BACKOFF_CAP)
+                continue
+
+            last_resp = resp
+            last_exc = None
+            if resp.status_code in self._HTTP_RETRY_STATUSES and attempt < attempts:
+                _logger.warning(
+                    'Channel Bridge: HTTP POST %s status=%s, retry in %.1fs',
+                    url[:80],
+                    resp.status_code,
+                    delay,
+                )
+                time.sleep(delay)
+                delay = min(delay * 2, self._HTTP_BACKOFF_CAP)
+                continue
+
+            # `resp.ok` — зручність `requests.Response`, але не контракт:
+            # будь-яка обгортка чи заглушка (тестова, проксі, мок) може мати
+            # лише `status_code`. Рахуємо успіх самі — від коду статусу.
+            ok = 200 <= resp.status_code < 400
+            self._log_delivery(
+                url=url,
+                ok=ok,
+                status_code=resp.status_code,
+                error='' if ok else resp.text,
+                attempts=attempt,
+                event_type=event_type,
+                external_thread_id=external_thread_id,
+            )
+            return resp
+
+        # Сюди не доходимо (цикл або повертає, або піднімає), але лишаємо
+        # явний вихід, щоб статичний аналіз не скаржився на None.
+        if last_exc:
+            raise last_exc
+        return last_resp
+
+    def _log_delivery(
+        self,
+        *,
+        url,
+        ok,
+        status_code=0,
+        error='',
+        attempts=1,
+        event_type='message',
+        external_thread_id=None,
+    ):
+        """Пише рядок у `channel.delivery.log`. Ніколи не валить відправку.
+
+        Журнал — допоміжний: якщо запис не вдався (напр. БД у режимі
+        read-only під час апгрейду), це не привід втратити саме повідомлення.
+        Тому виняток ловимо й лишаємо в debug-лозі.
+        """
+        try:
+            self.env['channel.delivery.log'].sudo().create(
+                {
+                    'backend_id': self.id if self else False,
+                    'service': self.service or '',
+                    'external_thread_id': str(external_thread_id or ''),
+                    'endpoint': (url or '')[:512],
+                    'event_type': event_type or 'message',
+                    'ok': bool(ok),
+                    'status_code': int(status_code or 0),
+                    'attempts': int(attempts or 1),
+                    'error_snippet': self._mask_secrets(str(error or ''))[:240],
+                }
+            )
+        except Exception:
+            _logger.debug('Channel Bridge: delivery log write failed', exc_info=True)
 
     # ── Політика повторів (RET-02, EB-01, EB-03) ────────────────────────
     # Постійні помилки провайдера — повторювати марно (клієнт заблокував бота,

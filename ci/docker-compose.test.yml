@@ -82,11 +82,16 @@ services:
       - ../:/mnt/extra-addons/fayna_channel_bridge
     # --http-port=8070: не конфліктує з постійним сервером `web` на 8069.
     # --workers=0: HttpCase потребує однопроцесного режиму (спільний реєстр).
+    # -u fayna_channel_bridge: БД стенда переживає прогони, тому схема в ній
+    #   відстає від коду (нова модель → "relation ... does not exist").
+    #   Апгрейд перед тестами приводить схему до стану коду — тест-раннер
+    #   не має залежати від того, чи хтось зробив `-u` руками.
     command: >
       odoo --db_host=db --db_port=5432 --db_user=odoo
       --db_password=${DB_PASSWORD:-odoo}
       -d fayna_bridge_test
       --http-port=8070
+      -u fayna_channel_bridge
       --test-enable --test-tags=/fayna_channel_bridge
       --stop-after-init --log-level=test --workers=0
     networks:

@@ -7,4 +7,6 @@ access_channel_conversation_officer,channel.conversation officer,model_channel_c
 access_channel_conversation_admin,channel.conversation admin,model_channel_conversation,group_channel_bridge_admin,1,1,1,1
 access_channel_provider_officer,channel.provider officer,model_channel_provider,group_channel_bridge_officer,1,0,0,0
 access_channel_provider_admin,channel.provider admin,model_channel_provider,group_channel_bridge_admin,1,1,1,1
+access_channel_delivery_log_officer,channel.delivery.log officer,model_channel_delivery_log,group_channel_bridge_officer,1,0,0,0
+access_channel_delivery_log_admin,channel.delivery.log admin,model_channel_delivery_log,group_channel_bridge_admin,1,1,1,1
 access_channel_connect_wizard_admin,channel.connect.wizard admin,model_channel_connect_wizard,group_channel_bridge_admin,1,1,1,1
