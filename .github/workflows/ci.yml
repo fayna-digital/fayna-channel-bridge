@@ -84,9 +84,31 @@ jobs:
             echo "::error::Odoo tests exited with code $exit_code"
             exit 1
           fi
-          failed_count=$(echo "$output" | grep -oE '[0-9]+ failed' | grep -oE '[0-9]+' | head -1)
-          if [ -n "$failed_count" ] && [ "$failed_count" -ne 0 ]; then
-            echo "::error::Odoo tests reported $failed_count failure(s)"
+          # Результат читаємо з авторитетного рядка Odoo:
+          #   odoo.tests.result: <failed> failed, <errors> error(s) of <total> tests
+          #
+          # Раніше брали ПЕРШИЙ збіг '[0-9]+ failed' у всьому виводі. Це
+          # хибнопозитив: попередження retry-тесту «HTTP POST attempt 1/2 failed»
+          # теж підпадає під патерн, і job падав при справжньому результаті
+          # «0 failed, 0 error(s) of 126 tests». Тепер береться лише рядок
+          # результату Odoo, а гейт — СИЛЬНІШИЙ: він додатково перевіряє
+          # error(s) і що тести взагалі виконалися (0 tests = мовчанка
+          # раннера, а не зелений стан).
+          tuples=$(echo "$output" | grep -oE '[0-9]+ failed, [0-9]+ error\(s\) of [0-9]+ tests' || true)
+          if [ -z "$tuples" ]; then
+            echo "::error::Не знайдено рядок результату Odoo (odoo.tests.result) — стан тестів НЕ підтверджено"
             exit 1
           fi
-          echo "::notice::Odoo tests passed (0 failed)"
+          nums=$(echo "$tuples" | sed -E 's/ failed,/ /; s/ error\(s\) of / /; s/ tests//')
+          bad=$(echo "$nums" | awk '$1 != 0 || $2 != 0')
+          if [ -n "$bad" ]; then
+            echo "::error::Odoo tests reported failures (failed errors total):"
+            echo "$bad"
+            exit 1
+          fi
+          total_tests=$(echo "$nums" | awk '{s+=$3} END {print s+0}')
+          if [ "$total_tests" -eq 0 ]; then
+            echo "::error::Odoo tests: 0 тестів виконано — тест-раннер мовчить, зеленого стану немає"
+            exit 1
+          fi
+          echo "::notice::Odoo tests passed ($total_tests tests, 0 failed, 0 errors)"
