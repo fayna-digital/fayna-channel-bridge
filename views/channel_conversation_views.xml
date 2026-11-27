@@ -6,7 +6,7 @@
         <field name="name">channel.conversation.list</field>
         <field name="model">channel.conversation</field>
         <field name="arch" type="xml">
-            <tree create="false"
+            <list create="false"
                 decoration-muted="stage == 'close'"
                 decoration-info="stage == 'new'"
                 decoration-warning="stage == 'new_message'">
@@ -16,7 +16,7 @@
                 <field name="last_message_preview" string="Last message" />
                 <field name="last_message_date" string="Date" />
                 <field name="stage" string="Stage" widget="badge" />
-            </tree>
+            </list>
         </field>
     </record>
 

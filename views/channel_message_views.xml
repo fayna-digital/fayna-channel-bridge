@@ -6,7 +6,7 @@
         <field name="name">channel.message.list</field>
         <field name="model">channel.message</field>
         <field name="arch" type="xml">
-            <tree create="false"
+            <list create="false"
                 decoration-danger="state in ('failed', 'failed_permanent')">
                 <field name="date" string="Date" />
                 <field name="service" string="Channel" />
@@ -15,7 +15,7 @@
                 <field name="provider_user_id" string="Contact in channel" />
                 <field name="text_message" string="Message" />
                 <field name="last_error" string="Last error" />
-            </tree>
+            </list>
         </field>
     </record>
 

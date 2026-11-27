@@ -1,7 +1,7 @@
 # Dockerfile для тестування fayna_channel_bridge в ізольованому Odoo 17 середовищу.
 # Використовується з docker-compose.test.yml (див. README.md).
 # Build context: корінь репо (щоб COPY ../addons/... працював).
-FROM odoo:17.0
+FROM odoo:18.0
 
 # Додаємо залежності для тестів
 RUN pip3 install -q pytest pytest-cov

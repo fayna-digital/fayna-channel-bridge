@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
 
-    <!-- ─── Security Categories ─────────────────────────────── -->
-    <record id="module_channel_bridge" model="ir.module.category">
+    <!-- ─── Privilege (Odoo 18+: res.groups.privilege замість ir.module.category) ── -->
+    <record id="privilege_channel_bridge" model="res.groups.privilege">
         <field name="name">Channel Bridge</field>
         <field name="sequence">110</field>
     </record>
@@ -12,7 +12,7 @@
     <!-- Officer: бачить канали, читає журнал повідомлень -->
     <record id="group_channel_bridge_officer" model="res.groups">
         <field name="name">Officer</field>
-        <field name="category_id" ref="module_channel_bridge" />
+        <field name="privilege_id" ref="privilege_channel_bridge" />
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
         <field name="comment">Support operator. Reads channels and the message journal of own
             transport.</field>
@@ -21,7 +21,7 @@
     <!-- Administrator: повний доступ до налаштувань каналів -->
     <record id="group_channel_bridge_admin" model="res.groups">
         <field name="name">Administrator</field>
-        <field name="category_id" ref="module_channel_bridge" />
+        <field name="privilege_id" ref="privilege_channel_bridge" />
         <field name="implied_ids" eval="[(4, ref('group_channel_bridge_officer'))]" />
         <field name="comment">Channel Bridge administrator. Full access to channel
             settings.</field>

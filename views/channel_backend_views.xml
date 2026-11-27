@@ -6,7 +6,7 @@
         <field name="name">channel.backend.list</field>
         <field name="model">channel.backend</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" string="Name" />
                 <field name="service" string="Channel" />
                 <!-- Е-1: замість двох булевих колонок (active, last_healthcheck_ok) —
@@ -16,7 +16,7 @@
                 <!-- UX-аудит (Н9): причина помилки видима прямо в списку, щоб
                      користувач розумів, чому канал у стані Error. -->
                 <field name="last_error" string="Last error" optional="show" />
-            </tree>
+            </list>
         </field>
     </record>
 

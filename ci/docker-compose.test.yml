@@ -34,7 +34,7 @@ services:
 
   # Odoo 17 + fayna_channel_bridge
   web:
-    image: odoo:17.0
+    image: odoo:18.0
     container_name: fayna_bridge_test_web
     depends_on:
       db:
@@ -67,7 +67,7 @@ services:
   # Не тримає постійного сервера → тестовий HTTP-сервер сам займає 8070.
   # Запуск: docker compose -f ci/docker-compose.test.yml run --rm tests
   tests:
-    image: odoo:17.0
+    image: odoo:18.0
     container_name: fayna_bridge_test_runner
     depends_on:
       db:
