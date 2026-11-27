@@ -3,6 +3,7 @@
 import { Component, onWillStart, useState } from "@odoo/owl";
 
 import { registry } from "@web/core/registry";
+import { _t } from "@web/core/l10n/translation";
 import { useService } from "@web/core/utils/hooks";
 
 /**
@@ -111,8 +112,8 @@ export class ChannelDashboard extends Component {
 
     get categoryLabels() {
         return {
-            main: this.env._t("Main"),
-            marketplace: this.env._t("Marketplace integrations"),
+            main: _t("Main"),
+            marketplace: _t("Marketplace integrations"),
         };
     }
 
@@ -135,14 +136,14 @@ export class ChannelDashboard extends Component {
         }
         if (provider.has_unconfirmed_preconditions) {
             this.notificationService.add(
-                provider.blocking_reason || this.env._t("Preconditions are not confirmed."),
+                provider.blocking_reason || _t("Preconditions are not confirmed."),
                 { type: "danger" }
             );
             return;
         }
         if (provider.connect_method === "token") {
             await this.actionService.doAction({
-                name: this.env._t("Connect %s", provider.name),
+                name: _t("Connect %s", provider.name),
                 type: "ir.actions.act_window",
                 res_model: "channel.connect.wizard",
                 view_mode: "form",
@@ -177,7 +178,7 @@ export class ChannelDashboard extends Component {
         if (provider.connect_method === "native") {
             // Це вміє сам Odoo (Email/SMS) — ведемо в його налаштування.
             this.notificationService.add(
-                this.env._t(
+                _t(
                     "Channel %s is handled natively by Odoo — configure it in the Odoo settings.",
                     provider.name
                 ),
@@ -187,7 +188,7 @@ export class ChannelDashboard extends Component {
         }
         // widget / settings — інструкція або налаштування.
         this.notificationService.add(
-            this.env._t(
+            _t(
                 "Channel %s does not require connecting — just embed the widget or configure it in Odoo settings.",
                 provider.name
             ),
@@ -205,8 +206,8 @@ export class ChannelDashboard extends Component {
             return;
         }
         const confirmed = await this.dialogService.confirm(
-            this.env._t("Disconnect %s?", provider.name),
-            this.env._t(
+            _t("Disconnect %s?", provider.name),
+            _t(
                 "This channel will be disconnected and messages will stop flowing. You can reconnect it later."
             )
         );
@@ -215,7 +216,7 @@ export class ChannelDashboard extends Component {
         }
         await this.orm.call("channel.provider", "action_disconnect", [provider.id]);
         this.notificationService.add(
-            this.env._t("%s has been disconnected.", provider.name),
+            _t("%s has been disconnected.", provider.name),
             { type: "success" }
         );
         await this._load();
